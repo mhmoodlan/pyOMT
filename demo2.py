@@ -181,6 +181,8 @@ if __name__ == "__main__":
     '''Start training and/or generating'''
     for action in actions:           
         img_transform = transforms.Compose([
+            transforms.Resize(64),
+            transforms.CenterCrop(64),
             transforms.ToTensor(),
         ])
         dataset = P_loader.P_loader(root=data_path,transform=img_transform)
